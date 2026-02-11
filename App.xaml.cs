@@ -1,4 +1,6 @@
-﻿namespace utilities;
+﻿using Microsoft.Maui.Controls;
+
+namespace utilities;
 
 public partial class App : Application
 {
@@ -6,20 +8,16 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-        var secondWindow = new Window(new ContentPage())
-        {
-            Title = "Second window",
-            Width = 700,
-            Height = 500,
-            X = 100,
-            Y = 100
-        };
-
-        Current?.OpenWindow(secondWindow);
-
+		//MainPage = new AppShell();
+     /*Window secondWindow = new Window(new Page());
+Application.Current?.OpenWindow(secondWindow);
+*/
 	}
-    
+  /*  protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(new AppShell());
+    }
+    */
     
 
 	 protected override void OnStart()

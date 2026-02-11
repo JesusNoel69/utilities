@@ -1,9 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mauiCursor="clr-namespace:utilities"
              x:Class="utilities.MainPage"
              >
+        <!--here a navigaton bar-->
+       
+        <Grid
+            x:Name="ButtonsLayout"
+            ColumnDefinitions="auto,auto,auto"
+            ColumnSpacing="2"
+            RowSpacing="2"
+            Padding="1"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+        </Grid>
 
+        <!--<Grid
+            x:Name="ContainerGrid">
+        </Grid>-->
+        <!--<Button
+            x:Name="CounteBtn"
+            Text="Click me" 
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="OnCounterClicked"
+            HorizontalOptions="Fill" />-->
+    <!--
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -34,5 +57,6 @@
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>
     </ScrollView>
+    -->
 
 </ContentPage>
