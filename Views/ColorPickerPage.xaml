@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mauiCursor="clr-namespace:utilities"
+              xmlns:controls="clr-namespace:Maui.ColorPicker;assembly=Maui.ColorPicker"
+             x:Class="utilities.Views.ColorPickerPage"
+            >
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <controls:ColorPicker
+            x:Name="ColorPickerControl"
+            HeightRequest="220"
+            ColorFlowDirection="Horizontal"
+            ColorSpectrumStyle="ShadeToHueStyle" />
+        <Button x:Name="ActivateButton" Text="Active " Clicked="OnToggleEyedropper" />
+        <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
+            <Frame x:Name="ColorPreview" WidthRequest="36" HeightRequest="36" CornerRadius="18" Padding="0" />
+            <Label x:Name="ColorHex" FontSize="16" VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+        <Label Text="Tip: While this is active, move cursor around the screen." Opacity="0.7"/>
+    </VerticalStackLayout>
+</ContentPage>

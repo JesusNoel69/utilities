@@ -2,20 +2,8 @@ namespace utilities
 {
     public class WindowCreator : IWindowCreator
 {
-    public Window CreateWindow(Application app, IActivationState activationState)
+    public Window CreateWindow(Application app, IActivationState? activationState)
     {
-        /*var window = new Window(new ContentPage
-        {
-            Content = new Grid
-            {
-                new Label
-                {
-                    Text = "Hello from IWindowCreator",
-                    HorizontalOptions = LayoutOptions.Center,
-                    VerticalOptions = LayoutOptions.Center
-                }
-            }
-        });*/
         // Get display size
        var di = DeviceDisplay.Current.MainDisplayInfo;
         var screenW = di.Width / di.Density;
@@ -27,19 +15,15 @@ namespace utilities
         {
             Width = width,
             Height = height,
-            X = screenW - width+8,
+            X = screenW - width + 8,
             Y = 0,
         };
-        var second = new Window(new ContentPage())
+  window.HandlerChanged += (_, __) =>
         {
-            Title = "Second",
-            Width = 700,
-            Height = 500,
-            X = 950,
-            Y = 0
+#if WINDOWS
+            Platforms.Windows.WindowChrome.BlockResize(window);
+#endif
         };
-
-        //app.OpenWindow(second);
         return window;
     }
 }

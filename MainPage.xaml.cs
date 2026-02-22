@@ -1,4 +1,6 @@
-﻿using utilities.Platforms.Windows;
+﻿#if WINDOWS
+using utilities.Platforms.Windows;
+#endif
 namespace utilities;
 
 public partial class MainPage : ContentPage
@@ -51,12 +53,14 @@ public partial class MainPage : ContentPage
 			btn.Clicked+= OnButtonCLick;
 			ButtonsLayout.Add(btn, col, row);
 			//change after added btn element to grid because context not null
+#if WINDOWS
 			btn.HandlerChanged += (_, __) =>
 			{
 				var ctx = btn.Handler?.MauiContext;
 				if (ctx is not null)
 					btn.SetCustomCursor(CursorIcon.Hand, ctx);
 			};
+#endif
 			col++;
 			if (count % 3 == 0)
 			{

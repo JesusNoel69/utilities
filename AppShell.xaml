@@ -3,26 +3,22 @@
     x:Class="utilities.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:utilities"
+    xmlns:local="clr-namespace:utilities" 
+    xmlns:views="clr-namespace:utilities.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="Utilities"
     >
     <!--local: is used because mainpage was declared in root, indicate views instead local for future tabs-->
     <TabBar>
         <ShellContent
-            Title="Accented words"
+            Title="Words"
             Icon="accent_image.webp"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage"/>
-
-        <!--<Tab Title="Domestic"
-            Icon="dotnet_bot.png">
-           <ShellContent Title="1"
-                         ContentTemplate="{DataTemplate views:MainPage}" />
-           <ShellContent Title="2"
-                         ContentTemplate="{DataTemplate local:MainPage}" />       
-            </Tab>-->
+        <ShellContent
+            Title="Picker"
+            Icon="accent_image.webp"
+            ContentTemplate="{DataTemplate views:ColorPickerPage}"
+            Route="ColorPickerPage"/>
     </TabBar>
-    
-
 </Shell>
