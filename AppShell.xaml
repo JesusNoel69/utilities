@@ -8,7 +8,6 @@
     Shell.FlyoutBehavior="Disabled"
     Title="Utilities"
     >
-    <!--local: is used because mainpage was declared in root, indicate views instead local for future tabs-->
     <TabBar>
         <ShellContent
             Title="Words"
@@ -20,5 +19,10 @@
             Icon="accent_image.webp"
             ContentTemplate="{DataTemplate views:ColorPickerPage}"
             Route="ColorPickerPage"/>
+        <ShellContent
+            Title="File"
+            Icon="accent_image.webp"
+            ContentTemplate="{DataTemplate views:FileManagerPage}"
+            Route="FileManager"/>
     </TabBar>
 </Shell>

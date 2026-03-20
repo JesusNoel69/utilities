@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mauiCursor="clr-namespace:utilities"
+             x:Class="utilities.Views.FileManagerPage"
+            >
+    <VerticalStackLayout Padding="20" Spacing="12">
+        <HorizontalStackLayout>
+            <Label Text="Route: "/> 
+            <Entry
+                x:Name="Route"               
+            />  
+            <Button x:Name="FindFileButton" Text="..."  Clicked="OnFindFileButton_Clicked"/>
+        </HorizontalStackLayout>
+        <Button Text="Delete" Clicked="OnDeleteFiles_Clicked" />
+        <Editor 
+            x:Name ="Paths"
+            Text=""
+            IsReadOnly="True"
+            AutoSize="TextChanges"
+            HeightRequest="150"/>
+
+        <Label Text="Errors: "/> 
+        <Editor 
+            Text=""
+            x:Name="Errors"
+            IsReadOnly="True"
+            AutoSize="TextChanges"
+            
+            HeightRequest="150"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -11,7 +11,11 @@ namespace utilities
         var taskbarDip = 40;
         var width = screenW / 4.0;
         var height = screenH - taskbarDip;
-        var window = new Window(new AppShell())
+        var services = app.Handler?.MauiContext?.Services
+                      ?? throw new InvalidOperationException("MauiContext unavailable.");
+
+        var shell = services.GetRequiredService<AppShell>();
+        var window = new Window(shell)
         {
             Width = width,
             Height = height,

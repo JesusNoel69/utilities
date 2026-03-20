@@ -1,6 +1,9 @@
 using Microsoft.Maui.Dispatching;
 using utilities.Interfaces;
 using utilities.Platforms.Windows;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui;
+
 using CommunityToolkit.Maui;
 namespace utilities.Views
 {
@@ -9,7 +12,16 @@ namespace utilities.Views
         private readonly IScreenColorPicker? _picker;
         private IDispatcherTimer? _timer;
         private bool _active;
+        public ColorPickerPage() 
+            : this(GetPickerFromServices())
+        {
+        }
 
+        private static IScreenColorPicker? GetPickerFromServices()
+        {
+            var services = IPlatformApplication.Current?.Services;
+            return services?.GetService<IScreenColorPicker>();
+        }
         public ColorPickerPage(IScreenColorPicker? picker = null)
         {
             InitializeComponent();
@@ -18,7 +30,6 @@ namespace utilities.Views
             ColorPreview.BackgroundColor = Colors.Transparent;
             ColorHex.Text = "#--------";
         }
-
         private void OnToggleEyedropper(object sender, EventArgs e)
         {
             if (_picker is null || !_picker.IsSupported)

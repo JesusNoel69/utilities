@@ -17,6 +17,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IScreenColorPicker, ScreenColorPicker>();
 #endif
 		builder.Services.AddTransient<ColorPickerPage>();
+		builder.Services.AddTransient<FileManagerPage>();
+		builder.Services.AddSingleton<AppShell>();
 		builder
 			.UseMauiApp<App>()
 			.UseSkiaSharp()
